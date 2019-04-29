@@ -1,3 +1,7 @@
+function getButtonID() {
+    return 'YTClipper';
+}
+
 function addButton() {
 
     const playerControls = document.getElementsByClassName('ytp-left-controls')[0];
@@ -6,13 +10,12 @@ function addButton() {
         return;
     }
     
-    const recordButtonID = 'YTClipper';
-    if (document.getElementById(recordButtonID)) return; // We've already added the button
+    if (document.getElementById(getButtonID())) return; // We've already added the button
 
     // Make a custom button by copying the play button
     const playButton = playerControls.getElementsByClassName('ytp-play-button')[0];
     const recordButton = playButton.cloneNode(true);
-    recordButton.id = recordButtonID;
+    recordButton.id = getButtonID();
     recordButton.setAttribute('title', 'Record');
     recordButton.setAttribute('aria-label', 'Record');
 
@@ -37,6 +40,19 @@ function addButton() {
     circleInner.setAttributeNS(null, 'r', 3.5);
     circleInner.setAttributeNS(null, 'style', 'fill: white;');
     buttonPath.appendChild(circleInner);
+
+    // Click handler
+    recordButton.onclick = function() {
+        const videoPlayer = recordButton.ownerDocument.getElementsByTagName('video')[0];
+        if (videoPlayer.paused) {
+            videoPlayer.play();
+            circleInner.setAttributeNS(null, 'style', 'fill: red;');
+        }
+        else {
+            videoPlayer.pause();
+            circleInner.setAttributeNS(null, 'style', 'fill: white;');
+        } 
+    }    
 }
 
 addButton();
