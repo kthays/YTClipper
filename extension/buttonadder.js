@@ -1,3 +1,28 @@
+function createElementFromHTML(htmlString) {
+    // https://stackoverflow.com/a/35385518
+    const template = document.createElement('template');
+    htmlString = htmlString.trim();
+    template.innerHTML = htmlString;
+    return template.content.firstChild;
+}
+
+function getPopupID() {
+    return 'YTClipperPopup'
+}
+
+function addPopupControls() {
+    if (document.getElementById(getPopupID())) return; // We've already added the popup
+    const player = document.getElementById('movie_player');
+    const popup = createElementFromHTML(`<span class="popuptext" id="`+ getPopupID() + `">A Simple Popup!</span>`);
+
+    // Add the popup directly below the player
+    player.parentNode.insertBefore(popup, player.nextSibling);
+
+    // Set the popup's style
+    popup.style.backgroundColor = 'red';
+}
+
+
 function getButtonID() {
     return 'YTClipper';
 }
@@ -43,16 +68,19 @@ function addButton() {
 
     // Click handler
     recordButton.onclick = function() {
-        const videoPlayer = recordButton.ownerDocument.getElementsByTagName('video')[0];
-        if (videoPlayer.paused) {
-            videoPlayer.play();
+        const video = recordButton.ownerDocument.getElementsByTagName('video')[0];
+        if (video.paused) {
+            video.play();
             circleInner.setAttributeNS(null, 'style', 'fill: red;');
         }
         else {
-            videoPlayer.pause();
+            video.pause();
             circleInner.setAttributeNS(null, 'style', 'fill: white;');
         } 
     }    
+
 }
 
+
+addPopupControls();
 addButton();
