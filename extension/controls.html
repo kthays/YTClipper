@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script>
+            // Restricts input for the given textbox to the given inputFilter.
+            // https://jsfiddle.net/emkey08/zgvtjc51
+            function setInputFilter(textbox, inputFilter) {
+            ["input", "keydown", "keyup", "mousedown", "mouseup", "select", "contextmenu", "drop"].forEach(function(event) {
+                textbox.addEventListener(event, function() {
+                if (inputFilter(this.value)) {
+                    this.oldValue = this.value;
+                    this.oldSelectionStart = this.selectionStart;
+                    this.oldSelectionEnd = this.selectionEnd;
+                } else if (this.hasOwnProperty("oldValue")) {
+                    this.value = this.oldValue;
+                    this.setSelectionRange(this.oldSelectionStart, this.oldSelectionEnd);
+                }
+                });
+            });
+            }
+        </script>
+    </head>
+
+    <body>
+        <span>
+            <button>></button>
+            <input id="YTCTimeStart">
+            /
+            <input id="YTCTimeEnd">
+            <button>X</button>
+        </span>
+
+        <script>
+            // Install input filters.
+            function inputFilter(value) {
+                return /^\d{0,2}([.]\d{0,3})?$/.test(value);
+            };
+            setInputFilter(document.getElementById("YTCTimeStart"), inputFilter);
+            setInputFilter(document.getElementById("YTCTimeEnd"), inputFilter);
+        </script>
+    </body>
+</html>
