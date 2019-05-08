@@ -31,10 +31,8 @@
         </span>
 
         <script>
-            // Install input filters.
-            function inputFilter(value) {
-                return /^\d{0,2}([.]\d{0,3})?$/.test(value);
-            };
+            // Install input filters on the time controls
+            function inputFilter(value) { return /^\d{0,2}([.]\d{0,3})?$/.test(value); };
             setInputFilter(document.getElementById("YTCTimeStart"), inputFilter);
             setInputFilter(document.getElementById("YTCTimeEnd"), inputFilter);
         </script>
