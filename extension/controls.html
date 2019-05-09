@@ -19,16 +19,29 @@
             });
             }
         </script>
+
+        <style>
+            #YTCControls {
+                background-color: #2c2c2c;
+                color: white;
+                display: inline-block;
+                padding: 1em;
+            }
+        </style>
+
     </head>
 
     <body>
-        <span>
-            <button>></button>
-            <input id="YTCTimeStart">
-            /
-            <input id="YTCTimeEnd">
-            <button>X</button>
-        </span>
+        <div id="YTCControls">
+            <span>
+                <button>></button>
+                <input id="YTCTimeStart">
+                /
+                <input id="YTCTimeEnd">
+                <button>X</button>
+            </span>
+        </div>
+
 
         <script>
             // Install input filters on the time controls
