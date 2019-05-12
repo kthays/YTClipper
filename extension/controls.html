@@ -93,9 +93,28 @@
 
             .action-button:hover {
               background: white;
-              color: #2c2c2c;
-              font-weight: 700;
+              color: black;
             }
+
+            .time-input {
+                background-color: #121212;
+                border: 1px solid;
+                border-color: #303030;
+                border-radius: 0.25em;
+                color: white;
+                font-family: Roboto, Arial, sans-serif;
+                font-size: 0.83em;
+                font-weight: 700;
+                height: 1.6em;
+                outline: 0;
+                padding-left: 0.5em;
+                vertical-align: middle;
+                width: 8em;
+            }
+            .time-input:focus {
+                border-color: #2f62b8;
+            }
+
         </style>
 
     </head>
@@ -104,9 +123,9 @@
         <div id='YTCControls'>
             <span>
                 <button class='button' id='YTCPlayPause'></button>
-                <input id='YTCTimeStart'>
+                <input class ='time-input' id='YTCTimeStart' placeholder="Start">
                 /
-                <input id='YTCTimeEnd'>
+                <input class ='time-input' id='YTCTimeEnd' placeholder="End">
                 <button class="action-button">GIF</button>
                 <button class="action-button">MP4</button>
                 <!-- https://stackoverflow.com/a/29563305 -->
