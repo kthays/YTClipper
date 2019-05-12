@@ -67,6 +67,13 @@
                 display: inline-block;
                 padding: 0.6em;
             }
+            
+            svg {
+                margin-left: 0.3em;
+                vertical-align: middle;
+                cursor: pointer;
+            }
+
         </style>
 
     </head>
@@ -78,7 +85,12 @@
                 <input id='YTCTimeStart'>
                 /
                 <input id='YTCTimeEnd'>
-                <button>X</button>
+
+                <!-- https://stackoverflow.com/a/29563305 -->
+                <svg viewBox="0 0 100 100" height="1em">
+                    <path stroke="white" stroke-width="15" fill="none" d="M0,0,100,100" />
+                    <path stroke="white" stroke-width="15" fill="none" d="M0,100,100,0" />
+                </svg>
             </span>
         </div>
     </body>
