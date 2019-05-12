@@ -74,6 +74,28 @@
                 cursor: pointer;
             }
 
+            .action-button {
+                background-color: transparent;
+                border: 1px solid;
+                border-color: white;
+                border-radius: 0.25em;
+                color: white;
+                cursor: pointer;
+                font-family: Roboto, Arial, sans-serif;
+                font-size: 1em;
+                font-weight: 400;
+                height: 1.6em;
+                margin-left: 0.3em;
+                outline: 0;
+                padding: 0em 0.9em;
+                vertical-align: middle;     
+            }
+
+            .action-button:hover {
+              background: white;
+              color: #2c2c2c;
+              font-weight: 700;
+            }
         </style>
 
     </head>
@@ -85,7 +107,8 @@
                 <input id='YTCTimeStart'>
                 /
                 <input id='YTCTimeEnd'>
-
+                <button class="action-button">GIF</button>
+                <button class="action-button">MP4</button>
                 <!-- https://stackoverflow.com/a/29563305 -->
                 <svg viewBox="0 0 100 100" height="1em">
                     <path stroke="white" stroke-width="15" fill="none" d="M0,0,100,100" />
